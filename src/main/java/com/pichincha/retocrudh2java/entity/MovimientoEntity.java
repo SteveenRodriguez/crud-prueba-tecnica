@@ -32,7 +32,7 @@ public class MovimientoEntity {
     private Double saldo;
 
     @ManyToOne
-    @JoinColumn(name = "movimiento_cuenta")
+    @JoinColumn(name = "id_persona")
     private CuentaEntity cuentaEntity;
 
 }

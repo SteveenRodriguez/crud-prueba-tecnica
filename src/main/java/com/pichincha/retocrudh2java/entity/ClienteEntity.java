@@ -30,6 +30,6 @@ public class ClienteEntity extends PersonaEntity{
 //    @JoinColumn(name = "persona_cliente")
 //    private PersonaEntity personaEntity;
 
-    @OneToMany(mappedBy = "clienteEntity")
-    private List<CuentaEntity> cuentas;
+//    @OneToMany(mappedBy = "clienteEntity")
+//    private List<CuentaEntity> cuentas;
 }

@@ -32,9 +32,9 @@ public class CuentaEntity {
     private Boolean estado;
 
     @ManyToOne
-    @JoinColumn(name = "cuenta_cliente")
+    @JoinColumn(name = "id_persona")
     private ClienteEntity clienteEntity;
 
-    @OneToMany(mappedBy = "cuentaEntity")
-    private List<MovimientoEntity> movimientos;
+//    @OneToMany(mappedBy = "cuentaEntity")
+//    private List<MovimientoEntity> movimientos;
 }
