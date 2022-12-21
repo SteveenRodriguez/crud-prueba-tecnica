@@ -35,6 +35,9 @@ public class MovimientoService {
         Double valor = movimiento.getValor();
         movimiento.setSaldoInicial(saldoCuentaAcutal);
         Double nuevoSaldo = 0.0;
+        if(Boolean.FALSE.equals(validarTipoMovimiento(movimiento.getTipoMovimiento())) ) {
+            throw new Exception("Tipo de movimiento invalido -> permitidos - RETIRO || DEPOSITO");
+        }
         if (saldoCuentaAcutal < valor && movimiento.getTipoMovimiento().equals("RETIRO")) {
             throw new Exception("Saldo Insuficiente");
         }
@@ -48,7 +51,13 @@ public class MovimientoService {
         movimiento.setSaldoDisponible(nuevoSaldo);
         return movimientoGateway.crearMovimiento(movimiento);
     }
-
+    public Boolean validarTipoMovimiento(String tipo) {
+        Boolean respuesta = false;
+        if (tipo.equals("RETIRO") || tipo.equals("DEPOSITO")){
+            return respuesta = true;
+        }
+        return respuesta;
+    }
     public Movimiento obtenerMovimientoPorId(Integer id) {
         return movimientoGateway.obtenerMovimientoPorId(id);
     }
