@@ -61,15 +61,4 @@ public class MovimientoService {
         movimientoGateway.eliminarMovimiento(id);
     }
 
-    public List<Reporte> reportes(Integer id) {
-        List<Reporte> reportes = new ArrayList<>();
-        var clienteEncontrado = clienteGateway.obtenerClientePorId(id);
-
-        Reporte reporte = Reporte.builder()
-                .cliente(clienteEncontrado.getNombre())
-                .build();
-
-        reportes.add(reporte);
-        return reportes;
-    }
 }

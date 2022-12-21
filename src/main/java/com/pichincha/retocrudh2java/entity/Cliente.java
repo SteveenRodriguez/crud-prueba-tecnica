@@ -28,6 +28,6 @@ public class Cliente extends Persona {
     @Column(nullable = false)
     private Boolean estado;
 
-    @OneToMany(mappedBy = "cliente", cascade = {CascadeType.ALL})
-    private List<Cuenta> cuentas;
+//    @OneToMany(mappedBy = "cliente", cascade = {CascadeType.ALL})
+//    private List<Cuenta> cuentas;
 }
