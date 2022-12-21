@@ -1,15 +1,19 @@
 package com.pichincha.retocrudh2java.service.gateway;
 
-import com.pichincha.retocrudh2java.entity.ClienteEntity;
+import com.pichincha.retocrudh2java.entity.Cliente;
+import com.pichincha.retocrudh2java.entity.Reporte;
 
+import java.util.Date;
 import java.util.List;
 
 public interface ClienteGateway {
-    List<ClienteEntity> listarClientes();
-    ClienteEntity guardarCliente(ClienteEntity clienteEntity);
-    ClienteEntity obtenerClientePorId(Integer id);
+    List<Cliente> obtenerTodosLosClientes();
+    Cliente crearCliente(Cliente clienteEntity);
+    Cliente obtenerClientePorId(Integer id);
 
-    ClienteEntity actualizarCliente(ClienteEntity clienteEntity);
+    Cliente actualizarCliente(Cliente clienteEntity);
 
     void eliminarCliente(Integer id);
+
+    List<Reporte> reportes (Integer clienteid, Date fechainicial, Date fechafinal);
 }

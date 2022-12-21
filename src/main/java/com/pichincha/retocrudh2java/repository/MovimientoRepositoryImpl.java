@@ -1,6 +1,6 @@
 package com.pichincha.retocrudh2java.repository;
 
-import com.pichincha.retocrudh2java.entity.MovimientoEntity;
+import com.pichincha.retocrudh2java.entity.Movimiento;
 import com.pichincha.retocrudh2java.repository.crud.MovimientoCrudRepository;
 import com.pichincha.retocrudh2java.service.gateway.MovimientoGateway;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,32 +9,34 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class MovimientoRepositoryImp implements MovimientoGateway {
+public class MovimientoRepositoryImpl implements MovimientoGateway {
     @Autowired
     private MovimientoCrudRepository movimientoCrudRepository;
 
     @Override
-    public List<MovimientoEntity> listarMovimientos() {
+    public List<Movimiento> obtenerTodosLosMovimientos() {
         return movimientoCrudRepository.findAll();
     }
 
     @Override
-    public MovimientoEntity guardarMovimiento(MovimientoEntity movimientoEntity) {
-        return movimientoCrudRepository.save(movimientoEntity);
+    public Movimiento crearMovimiento(Movimiento movimiento) {
+        return movimientoCrudRepository.save(movimiento);
     }
 
     @Override
-    public MovimientoEntity obtenerMovimientoPorId(Integer id) {
+    public Movimiento obtenerMovimientoPorId(Integer id) {
         return movimientoCrudRepository.findById(id).get();
     }
 
     @Override
-    public MovimientoEntity actualizarMovimiento(MovimientoEntity movimientoEntity) {
-        return movimientoCrudRepository.save(movimientoEntity);
+    public Movimiento actualizarMovimiento(Movimiento movimiento) {
+        return movimientoCrudRepository.save(movimiento);
     }
 
     @Override
     public void eliminarMovimiento(Integer id) {
         movimientoCrudRepository.deleteById(id);
     }
+
+
 }

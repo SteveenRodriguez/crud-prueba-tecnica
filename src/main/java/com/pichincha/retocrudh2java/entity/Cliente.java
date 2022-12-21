@@ -1,11 +1,13 @@
 package com.pichincha.retocrudh2java.entity;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity(name = "clientes")
@@ -14,22 +16,18 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @PrimaryKeyJoinColumn(referencedColumnName = "id_persona")
-public class ClienteEntity extends PersonaEntity{
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.AUTO)
-//    @Column(name = "cliente_id")
+//@JsonInclude(JsonInclude.Include.NON_NULL)
+public class Cliente extends Persona {
+
+    @Column(name = "cliente_id", nullable = false)
     private Integer clienteId;
 
-    @Column
+    @Column(nullable = false)
     private String clave;
 
-    @Column
+    @Column(nullable = false)
     private Boolean estado;
 
-//    @OneToOne()
-//    @JoinColumn(name = "persona_cliente")
-//    private PersonaEntity personaEntity;
-
-//    @OneToMany(mappedBy = "clienteEntity")
-//    private List<CuentaEntity> cuentas;
+    @OneToMany(mappedBy = "cliente", cascade = {CascadeType.ALL})
+    private List<Cuenta> cuentas;
 }

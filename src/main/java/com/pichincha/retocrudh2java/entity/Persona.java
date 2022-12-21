@@ -1,5 +1,6 @@
 package com.pichincha.retocrudh2java.entity;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,30 +14,28 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Inheritance(strategy = InheritanceType.JOINED)
-public class PersonaEntity {
+//@JsonInclude(JsonInclude.Include.NON_NULL)
+public class Persona {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_persona")
     private Integer idPersona;
 
-    @Column
+    @Column(nullable = false)
     private String nombre;
 
-    @Column
+    @Column(nullable = false)
     private String genero;
 
-    @Column
+    @Column(nullable = false)
     private String edad;
 
-    @Column
+    @Column(nullable = false)
     private Integer identificacion;
 
-    @Column
+    @Column(nullable = false)
     private String direccion;
 
-    @Column
+    @Column(nullable = false)
     private String telefono;
-
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    private ClienteEntity clienteEntity;
 }
